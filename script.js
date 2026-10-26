@@ -42,7 +42,7 @@ return count
 // STEP 3: Return the random number.
 
 function getRandomNum(max) {
-  if (isNaN(max) || max<0) {
+  if (isNaN(max) || max<1) {
     return 0
   }
     else {
@@ -79,8 +79,19 @@ return x+y
 //         places using .toFixed(2).
 
 function distance(x1, y1, x2, y2) {
-  return +Math.sqrt((x2-x1)**2+(y2-y1)**2).toFixed(2);
+  // Convert inputs to numbers to prevent string bugs
+  const numX1 = Number(x1);
+  const numY1 = Number(y1);
+  const numX2 = Number(x2);
+  const numY2 = Number(y2);
 
+  // Fallback to Math.pow for universal environment compatibility
+  const xDiffSq = Math.pow(numX2 - numX1, 2);
+  const yDiffSq = Math.pow(numY2 - numY1, 2);
+  
+  const sum = xDiffSq + yDiffSq;
+  
+  return Number(Math.sqrt(sum).toFixed(2));
 }
 
 
