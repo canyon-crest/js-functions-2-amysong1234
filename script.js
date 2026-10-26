@@ -1,24 +1,11 @@
-// ============================================
-//  Unit 8.6 – Functions
-// ============================================
-//  Complete each function below by following
-//  the STEP comments. Do NOT rename the functions.
-//
-//  Each function is called by a pre-written click
-//  handler at the bottom of this file. You only need
-//  to write the functions themselves.
-// ============================================
 
-
-// --- WARM-UP: greet(name) ---
-// This function takes a name and returns a greeting string.
 //
 // STEP 1: The function receives one parameter called "name".
 // STEP 2: Return the string "Hello, " + name + "!"
 //         Example: greet("Alice") should return "Hello, Alice!"
 
 function greet(name) {
-  // Write your code here
+  return("Hello, " + name + "!")
 
 }
 
@@ -27,8 +14,7 @@ function greet(name) {
 // This function counts how many times it has been called.
 // It uses a global variable to remember the count between calls.
 //
-// STEP 1: ABOVE this function, declare a global variable:
-//         let count = 0;
+        let count = 0;
 //
 // STEP 2: Inside the function, add 1 to count.
 //
@@ -38,8 +24,8 @@ function greet(name) {
 
 
 function myFunc() {
-  // Write your code here
-
+count++;
+return count
 }
 
 
@@ -56,9 +42,16 @@ function myFunc() {
 // STEP 3: Return the random number.
 
 function getRandomNum(max) {
-  // Write your code here
+  if (isNaN(max) || max<0) {
+    return 0
+  }
+    else {
+      max = Math.floor(Math.random()*max)+1
+      return max
+    }
+  }
 
-}
+
 
 
 // --- myAdder(x, y) ---
@@ -69,8 +62,7 @@ function getRandomNum(max) {
 //         The click handler already converts them for you.
 
 function myAdder(x, y) {
-  // Write your code here
-
+return x+y
 }
 
 
@@ -87,7 +79,7 @@ function myAdder(x, y) {
 //         places using .toFixed(2).
 
 function distance(x1, y1, x2, y2) {
-  // Write your code here
+  return +Math.sqrt((x2-x1)**2+(y2-y1)**2).toFixed(2);
 
 }
 
@@ -102,7 +94,9 @@ function distance(x1, y1, x2, y2) {
 //         Example: tipCalc(50, 20) → tip is 10, total is "60.00"
 
 function tipCalc(bill, tipPercent) {
-  // Write your code here
+  let tip = bill * (tipPercent / 100);
+  let total = bill + tip;
+  return total.toFixed(2);
 
 }
 
