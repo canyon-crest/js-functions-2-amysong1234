@@ -79,19 +79,13 @@ return x+y
 //         places using .toFixed(2).
 
 function distance(x1, y1, x2, y2) {
-  // Convert inputs to numbers to prevent string bugs
-  const numX1 = Number(x1);
-  const numY1 = Number(y1);
-  const numX2 = Number(x2);
-  const numY2 = Number(y2);
-
-  // Fallback to Math.pow for universal environment compatibility
-  const xDiffSq = Math.pow(numX2 - numX1, 2);
-  const yDiffSq = Math.pow(numY2 - numY1, 2);
-  
-  const sum = xDiffSq + yDiffSq;
-  
-  return Number(Math.sqrt(sum).toFixed(2));
+  let distx = (x2-x1);
+  let disty = (y2-y1);
+  distx = distx ** 2;
+  disty = disty ** 2;
+  let total = distx + disty;
+  total = Math.sqrt(total)
+  return total.toFixed(2)
 }
 
 
